@@ -15,7 +15,6 @@
 		<module>neo4j</module>
 		<module>gemfire</module>
 		<module>solr</module>
-    <module>utils</module>
   </modules>
   <packaging>pom</packaging>
 
