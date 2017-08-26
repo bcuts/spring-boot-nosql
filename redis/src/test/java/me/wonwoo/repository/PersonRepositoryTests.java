@@ -1,5 +1,6 @@
 package me.wonwoo.repository;
 
+import me.wonwoo.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
