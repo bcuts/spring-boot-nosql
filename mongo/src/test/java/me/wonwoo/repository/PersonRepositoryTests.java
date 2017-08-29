@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by wonwoolee on 2017. 8. 20..
@@ -24,7 +24,7 @@ public class PersonRepositoryTests {
     personRepository.deleteAll();
     personRepository.save(new Person("wonwoo"));
     personRepository.save(new Person("kevin"));
-    personRepository.findAll()
-        .forEach(System.out::println);
+    assertThat(personRepository.findByName("wonwoo").getName()).isEqualTo("wonwoo");
+    assertThat(personRepository.findAll()).hasSize(2);
   }
 }
