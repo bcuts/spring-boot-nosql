@@ -2,6 +2,7 @@ package me.wonwoo;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 /**
  * Created by wonwoolee on 2017. 8. 20..
@@ -11,6 +12,7 @@ public class Person {
   @Id
   private String id;
 
+  @Indexed
   private String name;
   public Person() {
 

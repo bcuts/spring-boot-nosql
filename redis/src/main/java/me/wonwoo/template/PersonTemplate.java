@@ -19,16 +19,14 @@ public class PersonTemplate {
   }
 
   public void deleteAll() {
-    personRedisTemplate.opsForList().getOperations().delete("persons");
+    personRedisTemplate.delete("persons");
   }
 
   public void save(Person person) {
     personRedisTemplate.opsForList().leftPush("persons", person);
-
   }
 
   public List<Person> findAll() {
-    return personRedisTemplate.opsForList().range("persons", 0, 10);
+    return personRedisTemplate.opsForList().range("persons", 0, -1);
   }
-
 }
