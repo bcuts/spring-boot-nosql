@@ -1,6 +1,5 @@
 package me.wonwoo;
 
-import org.springframework.data.gemfire.config.annotation.EnableGemFireProperties;
 import org.springframework.data.gemfire.repository.config.EnableGemfireRepositories;
 
 /**
