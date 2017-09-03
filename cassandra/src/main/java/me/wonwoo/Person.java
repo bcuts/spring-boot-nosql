@@ -1,8 +1,12 @@
 package me.wonwoo;
 
+import org.springframework.cassandra.core.PrimaryKeyType;
 import org.springframework.data.cassandra.mapping.Column;
 import org.springframework.data.cassandra.mapping.PrimaryKey;
+import org.springframework.data.cassandra.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.mapping.Table;
+
+import java.util.UUID;
 
 /**
  * Created by wonwoolee on 2017. 8. 21..
@@ -10,16 +14,17 @@ import org.springframework.data.cassandra.mapping.Table;
 @Table(value = "persons")
 public class Person {
 
-  @PrimaryKey("person_id")
-  private Long id;
+  @PrimaryKeyColumn(name = "person_id", type = PrimaryKeyType.CLUSTERED)
+  private UUID id;
 
-  @Column("name")
+  @PrimaryKeyColumn(name = "name", type = PrimaryKeyType.PARTITIONED)
   private String name;
 
   public Person() {
 
   }
-  public Person(Long id) {
+
+  public Person(UUID id) {
     this.setId(id);
   }
 
@@ -27,16 +32,16 @@ public class Person {
     this.name = name;
   }
 
-  public Person(Long id, String name) {
+  public Person(UUID id, String name) {
     this.id = id;
     this.name = name;
   }
 
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
