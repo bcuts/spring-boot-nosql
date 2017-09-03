@@ -9,6 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.UUID;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Created by wonwoolee on 2017. 8. 27..
  */
@@ -22,10 +24,10 @@ public class PersonRepositoryTests {
   @Test
   public void repository() {
     personRepository.deleteAll();
-    personRepository.save(new Person(UUID.randomUUID().toString(), "wonwoo"));
+    personRepository.save(new Person(UUID.randomUUID().toString(),"wonwoo"));
     personRepository.save(new Person(UUID.randomUUID().toString(),"kevin"));
-    personRepository.findAll()
-        .forEach(System.out::println);
+    assertThat(personRepository.findByName("wonwoo").get(0).getName()).isEqualTo("wonwoo");
+    assertThat(personRepository.findAll()).hasSize(2);
   }
 
 }
