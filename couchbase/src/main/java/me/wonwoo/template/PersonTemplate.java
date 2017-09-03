@@ -1,13 +1,11 @@
 package me.wonwoo.template;
 
-import com.couchbase.client.java.error.DocumentDoesNotExistException;
 import com.couchbase.client.java.view.ViewQuery;
 import com.couchbase.client.java.view.ViewResult;
 import com.couchbase.client.java.view.ViewRow;
 import me.wonwoo.Person;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.data.couchbase.core.CouchbaseTemplate;
-import org.springframework.data.couchbase.repository.support.SimpleCouchbaseRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
