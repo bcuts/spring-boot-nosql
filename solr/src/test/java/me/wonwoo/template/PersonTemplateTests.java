@@ -9,7 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.UUID;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 /**
  * Created by wonwoolee on 2017. 8. 26..
@@ -26,7 +27,6 @@ public class PersonTemplateTests {
     personTemplate.deleteAll();
     personTemplate.save(new Person(UUID.randomUUID().toString(), "wonwoo"));
     personTemplate.save(new Person(UUID.randomUUID().toString(),"kevin"));
-    personTemplate.findAll()
-        .forEach(System.out::println);
+    assertThat(personTemplate.findAll()).hasSize(2);
   }
 }

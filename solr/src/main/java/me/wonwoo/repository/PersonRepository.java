@@ -8,4 +8,5 @@ import org.springframework.data.solr.repository.SolrCrudRepository;
  */
 public interface PersonRepository extends SolrCrudRepository<Person, String> {
 
+  Person findByName(String name);
 }
